@@ -1,0 +1,7 @@
+{% comment %} Add below script before </head> tag close {% endcomment %}
+ <script>
+    var Shopify = Shopify || {};
+    Shopify.money_format = "{{ shop.money_format }}";
+</script>
+<script src="{{ 'money-format.js' | asset_url }}" defer></script>
+<script src="{{ 'wishlist.js' | asset_url }}" defer></script>

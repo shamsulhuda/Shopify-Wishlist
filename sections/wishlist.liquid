@@ -1,0 +1,42 @@
+{% comment %}
+This section will add on my-wishlist page only 
+So, create a page called "My Wishlist" as well as a template called "page.my-wishlist.json"
+{% endcomment %}
+
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{% style %}
+  .card__information .btn--remove-wl {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999;
+  }
+{% endstyle %}
+<section class="page-width">
+  <h1>My Wishlist</h1>
+  <div id="wishlist-container" class="grid product-grid contains-card contains-card--product contains-card--standard grid--{{ section.settings.columns }}-col-desktop grid--2-col-tablet-down">
+    <p>Loading your wishlist…</p>
+  </div>
+</section>
+
+<style>
+  .wishlist-item img { max-width: 100%; display: block; }
+  .btn--remove-wl { background: #e3342f; color: white; padding: .5rem; border: none; cursor: pointer; }
+</style>
+
+{% schema %}
+  {
+    "name": "Wishlist",
+    "settings": [
+      {
+        "type": "range",
+        "id": "columns",
+        "label": "Columns on desktop",
+        "max": 5,
+        "min": 1,
+        "step": 1,
+        "default": 3
+      }
+    ]
+  }
+{% endschema %}
